@@ -15,3 +15,15 @@ async function getWeather(location) {
   }
 }
 getWeather('Kenya');
+
+const getBackground = (weather) =>
+  fetch(
+    `https://api.giphy.com/v1/gifs/translate?api_key=eAYDWf9yrjuEV6rdxTYB6fR6v0AArbzg&s=${weather}`,
+    { mode: 'cors' },
+  );
+
+getBackground('rain')
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
