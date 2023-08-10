@@ -11,19 +11,30 @@ async function getWeather(location) {
     console.log(data);
     return data;
   } catch (error) {
+    // add custom error message to dom
     console.log(error);
   }
 }
-getWeather('Kenya');
-
 const getBackground = (weather) =>
   fetch(
     `https://api.giphy.com/v1/gifs/translate?api_key=eAYDWf9yrjuEV6rdxTYB6fR6v0AArbzg&s=${weather}`,
     { mode: 'cors' },
   );
 
-getBackground('rain')
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
+const input = document.querySelector('input');
+const submit = document.querySelector('[type="submit"]');
+
+function fetchData(e) {
+  e.preventDefault();
+  const inputValue = input.value;
+  getWeather(inputValue).then((data) => {
+    getBackground(data.current.condition.text).then((response) => {
+      response.json().then((json) => {
+        console.log(json);
+      });
+    });
   });
+}
+
+
+submit.addEventListener('click', fetchData);
