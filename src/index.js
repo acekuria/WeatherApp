@@ -24,10 +24,10 @@ const getBackground = (weather) =>
 
 const input = document.querySelector('input');
 const submit = document.querySelector('[type="submit"]');
-const gif = document.querySelector('img');
+const gifContainer = document.querySelector('.gif-container');
 
 function displayGif(json) {
-  gif.src = json.data.images.original.url;
+  gifContainer.style.backgroundImage = `url(${json.data.images.original.url})`;
 }
 
 function fetchData(e) {

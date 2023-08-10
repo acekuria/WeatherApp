@@ -15,9 +15,12 @@ body {
 .gif-container {
   width: 88vw;
   height: 55vh;
-  background-color: white;
+  background-color: rgb(252, 242, 230);
   align-self: center;
   margin-top: 40px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  box-shadow: 0px 0px 20px white;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
