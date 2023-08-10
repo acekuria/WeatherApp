@@ -1,0 +1,23 @@
+body {
+  background-image: url('Images/night.jpeg');
+  background-size: cover;
+  color: white;
+  font-family: 'Noto Sans', sans-serif;
+ 
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.gif-container {
+  width: 88vw;
+  height: 55vh;
+  background-color: white;
+  align-self: center;
+  margin-top: 40px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

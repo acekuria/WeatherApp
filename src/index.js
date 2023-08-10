@@ -24,6 +24,11 @@ const getBackground = (weather) =>
 
 const input = document.querySelector('input');
 const submit = document.querySelector('[type="submit"]');
+const gif = document.querySelector('img');
+
+function displayGif(json) {
+  gif.src = json.data.images.original.url;
+}
 
 function fetchData(e) {
   e.preventDefault();
@@ -33,6 +38,7 @@ function fetchData(e) {
       getBackground(data.current.condition.text).then((response) => {
         response.json().then((json) => {
           console.log(json);
+          displayGif(json);
         });
       });
     })
