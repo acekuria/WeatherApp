@@ -3,7 +3,6 @@ body {
   background-size: cover;
   color: white;
   font-family: 'Noto Sans', sans-serif;
- 
 }
 
 .container {
@@ -23,4 +22,50 @@ body {
   box-shadow: 0px 0px 20px white;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+}
+
+.search-container {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  font-size: 1.3rem;
+}
+
+.search-container input,
+.search-container button {
+  border-radius: 10px;
+  outline: none;
+  padding: 5px;
+}
+
+.search-container input {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.search-container input:focus {
+  box-shadow: 0 0 5px #000000; /* Add a subtle shadow */
+}
+
+.search-container button {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  transition: font-weight 0.2s ease-in-out;
+}
+
+.search-container button:hover {
+  background-color: rgb(252, 242, 230);
+  font-weight: bold;
+}
+
+.error-message {
+  margin-top: -10px;
+}
+
+.error {
+  color: red;
 }

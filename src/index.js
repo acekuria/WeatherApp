@@ -1,5 +1,20 @@
+const input = document.querySelector('input');
+const submit = document.querySelector('[type="submit"]');
+const gifContainer = document.querySelector('.gif-container');
+
+const errorText = document.querySelector('.error');
+
+function displayError(error) {
+  errorText.innerHTML = error;
+}
+
+function displayGif(json) {
+  gifContainer.style.backgroundImage = `url(${json.data.images.original.url})`;
+}
+
 async function getWeather(location) {
   try {
+    errorText.textContent = '';
     const response = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=f9bc59283a7b47699ee150824230708&q=${location}&aqi=no
       `,
@@ -22,14 +37,6 @@ const getBackground = (weather) =>
     { mode: 'cors' },
   );
 
-const input = document.querySelector('input');
-const submit = document.querySelector('[type="submit"]');
-const gifContainer = document.querySelector('.gif-container');
-
-function displayGif(json) {
-  gifContainer.style.backgroundImage = `url(${json.data.images.original.url})`;
-}
-
 function fetchData(e) {
   e.preventDefault();
   const inputValue = input.value;
@@ -43,7 +50,7 @@ function fetchData(e) {
       });
     })
     .catch((error) => {
-      console.log(error);
+      displayError('No matching location found');
     });
 }
 
