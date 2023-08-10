@@ -13,6 +13,7 @@ async function getWeather(location) {
   } catch (error) {
     // add custom error message to dom
     console.log(error);
+    throw error;
   }
 }
 const getBackground = (weather) =>
@@ -27,14 +28,17 @@ const submit = document.querySelector('[type="submit"]');
 function fetchData(e) {
   e.preventDefault();
   const inputValue = input.value;
-  getWeather(inputValue).then((data) => {
-    getBackground(data.current.condition.text).then((response) => {
-      response.json().then((json) => {
-        console.log(json);
+  getWeather(inputValue)
+    .then((data) => {
+      getBackground(data.current.condition.text).then((response) => {
+        response.json().then((json) => {
+          console.log(json);
+        });
       });
+    })
+    .catch((error) => {
+      console.log(error);
     });
-  });
 }
-
 
 submit.addEventListener('click', fetchData);
