@@ -8,6 +8,7 @@ const farenheitButton = document.querySelector('.farenheit');
 const feelsLike = document.querySelector('.feels-like');
 const degreesSymbol = document.querySelector('.degrees-symbol');
 const degrees = document.querySelector('.degrees');
+const searchContainer = document.querySelector('.search-container');
 
 function displayError(error) {
   errorText.innerHTML = error;
@@ -17,8 +18,14 @@ function setVisibility() {
   weatherInfo.style.visibility = 'visible';
 }
 
+function lowerOpacity() {
+  searchContainer.style.opacity = '0.5';
+}
+
 function displayGif(json) {
   gifContainer.style.backgroundImage = `url(${json.data.images.original.url})`;
+  lowerOpacity();
+  celciusButton.focus();
 }
 
 async function getWeather(location) {
@@ -90,6 +97,9 @@ function fetchData(e) {
       });
       farenheitButton.addEventListener('click', () => {
         displayFarenheit(data);
+      });
+      input.addEventListener('focus', () => {
+        searchContainer.style.opacity = '1';
       });
       displayWeather(data);
       getBackground(data.current.condition.text).then((response) => {

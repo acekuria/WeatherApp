@@ -13,6 +13,7 @@ body {
 
 .gif-container {
   width: 88vw;
+  max-width: 1500px;
   height: 50vh;
   background-color: rgb(252, 242, 230);
   align-self: center;
@@ -60,6 +61,10 @@ body {
 .search-container button:hover {
   background-color: rgb(252, 242, 230);
   font-weight: bold;
+}
+
+.search-container:focus {
+  opacity: 1;
 }
 
 .error-message {
@@ -138,4 +143,25 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 2px;
+}
+
+
+@media screen and (max-width: 800px) {
+  .weather-info {
+    flex-direction: column;
+  }
+  .degrees {
+    font-size: 5rem;
+    margin-top: 60px;
+  }
+  
+  .degrees-container {
+   align-items: center;
+   justify-content: space-around;
+   height: 100px;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
 }
