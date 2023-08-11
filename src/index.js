@@ -3,6 +3,11 @@ const submit = document.querySelector('[type="submit"]');
 const gifContainer = document.querySelector('.gif-container');
 const weatherInfo = document.querySelector('.weather-info');
 const errorText = document.querySelector('.error');
+const celciusButton = document.querySelector('.celcius');
+const farenheitButton = document.querySelector('.farenheit');
+const feelsLike = document.querySelector('.feels-like');
+const degreesSymbol = document.querySelector('.degrees-symbol');
+const degrees = document.querySelector('.degrees');
 
 function displayError(error) {
   errorText.innerHTML = error;
@@ -44,18 +49,35 @@ const getBackground = (weather) =>
 function displayWeather(data) {
   const condition = document.querySelector('.condition');
   const location = document.querySelector('.location');
-  const degrees = document.querySelector('.degrees');
-  const feelsLike = document.querySelector('.feels-like');
-  const degreesSymbol = document.querySelector('.degrees-symbol');
   const wind = document.querySelector('.wind');
   const humidity = document.querySelector('.humidity');
 
   condition.textContent = data.current.condition.text;
   location.textContent = `${data.location.name}, ${data.location.country}`;
+  // inital temp will be in celcius
+  degreesSymbol.textContent = '°C';
   degrees.textContent = Math.floor(data.current.temp_c);
-  feelsLike.textContent = `Feels Like:      ${data.current.feelslike_c}`;
+
+  feelsLike.textContent = `Feels Like:      ${data.current.feelslike_c} °C`;
   wind.textContent = `Wind:     ${data.current.wind_kph}kph`;
   humidity.textContent = `Humidity:    ${data.current.humidity}%`;
+}
+
+function displayFarenheit(data) {
+  // change the feels like to data.current.feelslike_f and fahrenheit
+  // change the degrees symbol to F
+  // change the degrees to data.current.temp_f
+  feelsLike.textContent = `Feels Like: ${data.current.feelslike_f} °F`;
+  degreesSymbol.textContent = '°F';
+  degrees.textContent = Math.floor(data.current.temp_f);
+}
+
+function displayCelcius(data) {
+  // change the feels like to data.current.feelslike_c and celcius
+  // change the degrees symbol to C
+  feelsLike.textContent = `Feels Like: ${data.current.feelslike_c} °C`;
+  degreesSymbol.textContent = '°C';
+  degrees.textContent = Math.floor(data.current.temp_c);
 }
 
 function fetchData(e) {
@@ -63,6 +85,12 @@ function fetchData(e) {
   const inputValue = input.value;
   getWeather(inputValue)
     .then((data) => {
+      celciusButton.addEventListener('click', () => {
+        displayCelcius(data);
+      });
+      farenheitButton.addEventListener('click', () => {
+        displayFarenheit(data);
+      });
       displayWeather(data);
       getBackground(data.current.condition.text).then((response) => {
         response.json().then((json) => {
