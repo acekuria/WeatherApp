@@ -76,6 +76,7 @@ body {
   align-items: center;
   justify-content: space-around;
   position: relative;
+  visibility: hidden;
 }
 
 .condition {
@@ -136,4 +137,5 @@ body {
 .weather-right > p{
   font-size: 1.2rem;
   font-weight: 600;
+  letter-spacing: 2px;
 }

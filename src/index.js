@@ -1,11 +1,15 @@
 const input = document.querySelector('input');
 const submit = document.querySelector('[type="submit"]');
 const gifContainer = document.querySelector('.gif-container');
-
+const weatherInfo = document.querySelector('.weather-info');
 const errorText = document.querySelector('.error');
 
 function displayError(error) {
   errorText.innerHTML = error;
+}
+
+function setVisibility() {
+  weatherInfo.style.visibility = 'visible';
 }
 
 function displayGif(json) {
@@ -64,6 +68,7 @@ function fetchData(e) {
         response.json().then((json) => {
           console.log(json);
           displayGif(json);
+          setVisibility();
         });
       });
     })
@@ -73,3 +78,8 @@ function fetchData(e) {
 }
 
 submit.addEventListener('click', fetchData);
+
+window.addEventListener('load', () => {
+  input.focus();
+  weatherInfo.classList.add('invisible');
+});
