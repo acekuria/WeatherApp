@@ -37,11 +37,21 @@ const getBackground = (weather) =>
     { mode: 'cors' },
   );
 
-function displayWeather (json) {
+function displayWeather(data) {
   const condition = document.querySelector('.condition');
   const location = document.querySelector('.location');
   const degrees = document.querySelector('.degrees');
   const feelsLike = document.querySelector('.feels-like');
+  const degreesSymbol = document.querySelector('.degrees-symbol');
+  const wind = document.querySelector('.wind');
+  const humidity = document.querySelector('.humidity');
+
+  condition.textContent = data.current.condition.text;
+  location.textContent = `${data.location.name}, ${data.location.country}`;
+  degrees.textContent = Math.floor(data.current.temp_c);
+  feelsLike.textContent = `Feels Like:      ${data.current.feelslike_c}`;
+  wind.textContent = `Wind:     ${data.current.wind_kph}kph`;
+  humidity.textContent = `Humidity:    ${data.current.humidity}%`;
 }
 
 function fetchData(e) {
@@ -49,11 +59,11 @@ function fetchData(e) {
   const inputValue = input.value;
   getWeather(inputValue)
     .then((data) => {
+      displayWeather(data);
       getBackground(data.current.condition.text).then((response) => {
         response.json().then((json) => {
           console.log(json);
           displayGif(json);
-          displayWeather(json);
         });
       });
     })
@@ -61,6 +71,5 @@ function fetchData(e) {
       displayError('No matching location found');
     });
 }
-
 
 submit.addEventListener('click', fetchData);
