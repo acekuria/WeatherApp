@@ -13,7 +13,7 @@ body {
 
 .gif-container {
   width: 88vw;
-  height: 55vh;
+  height: 50vh;
   background-color: rgb(252, 242, 230);
   align-self: center;
   margin-top: 40px;
@@ -68,4 +68,72 @@ body {
 
 .error {
   color: red;
+}
+
+.weather-info {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.condition {
+  font-weight: 200;
+  font-size: 1.8rem;
+  margin-bottom: -20px;
+}
+
+.location {
+  font-size: 2.7rem;
+}
+
+.degrees-container {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  height: 200px;
+}
+
+.degrees {
+  font-size: 11rem;
+  margin-top: 0px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: center;
+  margin-right: 30px
+
+}
+.button-container button {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+}
+
+.button-container button:hover {
+  background-color: rgb(136, 75, 0);
+}
+
+.degrees-container p {
+  font-size: 2rem;
+  margin-left: -50px;
+}
+.weather-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 300px;
+  height: 300px
+}
+
+.weather-right > p{
+  font-size: 1.2rem;
+  font-weight: 600;
 }

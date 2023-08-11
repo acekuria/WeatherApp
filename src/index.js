@@ -37,6 +37,13 @@ const getBackground = (weather) =>
     { mode: 'cors' },
   );
 
+function displayWeather (json) {
+  const condition = document.querySelector('.condition');
+  const location = document.querySelector('.location');
+  const degrees = document.querySelector('.degrees');
+  const feelsLike = document.querySelector('.feels-like');
+}
+
 function fetchData(e) {
   e.preventDefault();
   const inputValue = input.value;
@@ -46,6 +53,7 @@ function fetchData(e) {
         response.json().then((json) => {
           console.log(json);
           displayGif(json);
+          displayWeather(json);
         });
       });
     })
@@ -53,5 +61,6 @@ function fetchData(e) {
       displayError('No matching location found');
     });
 }
+
 
 submit.addEventListener('click', fetchData);
