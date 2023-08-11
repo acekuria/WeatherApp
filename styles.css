@@ -1,0 +1,167 @@
+body {
+  background-image: url('Images/night.jpeg');
+  background-size: cover;
+  color: white;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.gif-container {
+  width: 88vw;
+  max-width: 1500px;
+  height: 50vh;
+  background-color: rgb(252, 242, 230);
+  align-self: center;
+  margin-top: 40px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 0px 20px white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.search-container {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  font-size: 1.3rem;
+}
+
+.search-container input,
+.search-container button {
+  border-radius: 10px;
+  outline: none;
+  padding: 5px;
+}
+
+.search-container input {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.search-container input:focus {
+  box-shadow: 0 0 5px #000000; /* Add a subtle shadow */
+}
+
+.search-container button {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  transition: font-weight 0.2s ease-in-out;
+}
+
+.search-container button:hover {
+  background-color: rgb(252, 242, 230);
+  font-weight: bold;
+}
+
+.search-container:focus {
+  opacity: 1;
+}
+
+.error-message {
+  margin-top: -10px;
+}
+
+.error {
+  color: red;
+}
+
+.weather-info {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  visibility: hidden;
+}
+
+.condition {
+  font-weight: 200;
+  font-size: 1.8rem;
+  margin-bottom: -20px;
+}
+
+.location {
+  font-size: 2.7rem;
+}
+
+.degrees-container {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  height: 200px;
+}
+
+.degrees {
+  font-size: 11rem;
+  margin-top: 0px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: center;
+  margin-right: 30px
+
+}
+.button-container button {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+}
+
+.button-container button:hover {
+  background-color: rgb(136, 75, 0);
+}
+
+.degrees-container p {
+  font-size: 2rem;
+  margin-left: -50px;
+}
+.weather-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 300px;
+  height: 300px
+}
+
+.weather-right > p{
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+
+@media screen and (max-width: 800px) {
+  .weather-info {
+    flex-direction: column;
+  }
+  .degrees {
+    font-size: 5rem;
+    margin-top: 60px;
+  }
+  
+  .degrees-container {
+   align-items: center;
+   justify-content: space-around;
+   height: 100px;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+}

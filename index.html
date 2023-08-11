@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="gif-container">
+        <form action="">
+          <div class="search-container">
+            <div class="sub-search-container">
+              <input placeholder="City or Country" type="search" />
+              <button type="submit">Search</button>
+            </div>
+            <div class="error-message">
+              <p class="error"></p>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="weather-info">
+        <div class="weather-left">
+          <div class="sub-weather-left">
+            <h2 class="condition"></h2>
+            <h1 class="location"></h1>
+          </div>
+          <div class="degrees-container">
+            <h3 class="degrees"></h3>
+            <p class="degrees-symbol"></p>
+            <div class="button-container">
+              <button class="celcius">°C</button>
+              <button class="farenheit">°F</button>
+            </div>
+          </div>
+        </div>
+        <div class="weather-right">
+          <p class="feels-like"></p>
+          <p class="wind"></p>
+          <p class="humidity"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
